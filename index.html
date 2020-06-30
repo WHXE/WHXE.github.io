@@ -89,7 +89,7 @@
         <h2 id="关于git的"><a href="#关于git的" class="headerlink" title="关于git的"></a>关于git的</h2><p>   由于前阶段因为考试太久没整理电脑以及对编程的学习，很多东西都忘了一部分了，所以熟能生巧很重要。之前电脑重装完，这几天重新整理好了环境变量以及开发工具，然后复习之前的内容。昨天重装了git，然后也重新复习了一遍。</p>
 <p>   关于git的使用<br>   先在远端创建好仓库，然后git clone 地址   将仓库克隆到本地<br>   分为四步走<br>   1、touch 文件名               –》创建文件，也可以直接在文件夹创建<br>   2、git add 文件名            –》将文件从工作区添加到暂存区<br>   3、git commit -m ‘描述内容’    –》将暂存区域添加到本地仓库，填写的描述内容表示本次的操作是对文件的处理<br>   4、git push                  –》将文件提交到远端仓库</p>
 <p>   修改文件也是同样的，修改文件会将文件转义到工作区，所以当编辑完文件后，就需要从新从第二步开始，从新提交</p>
-<p>##关于hexo博客框架的<br>   这次的博客框架出现了一个BUG，页面没有渲染（partial转义失败）,导致显示只会显示出一部分混乱的HTML，这时候需要重新安装一个插件，由于我使用的是淘宝的镜像，使用的是cnpm，所以对应的需要用的命令是“cnpm install”。<br>   还有就是hexo框架支持Markdown语法，但是我电脑上没有相关的软件，只能用EverEdit来对博客文章内容编写，而且还么体统写学习Markdown语法。</p>
+<h2 id="关于hexo博客框架的"><a href="#关于hexo博客框架的" class="headerlink" title="关于hexo博客框架的"></a>关于hexo博客框架的</h2><p>   这次的博客框架出现了一个BUG，页面没有渲染（partial转义失败）,导致显示只会显示出一部分混乱的HTML，这时候需要重新安装一个插件，由于我使用的是淘宝的镜像，使用的是cnpm，所以对应的需要用的命令是“cnpm install”。<br>   还有就是hexo框架支持Markdown语法，但是我电脑上没有相关的软件，只能用EverEdit来对博客文章内容编写，无法插入图片，需要学习一下Markdown语法。</p>
 <p>   这几天先整理一下之前学习的内容，巩固一下对于数据库SQL优化相关的内容以及后面的关于MQ、redis这些内容，这周要把Docker看一下，以及重新制作一下之前的项目，电脑重装后数据库没做备份处理，导致之前项目的数据内容全部丢失，需要重新整理一遍。</p>
 
       
@@ -176,8 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>消息队列有什么优点和缺点?</p>
-<p>为什么使用消息队列?假设你的业务场景遇到个技术挑战，如果不用 MQ 可能会很麻烦，但是你用了 MQ 之后会带给你很多好处。</p>
+        <h2 id="消息队列有什么优点和缺点"><a href="#消息队列有什么优点和缺点" class="headerlink" title="消息队列有什么优点和缺点?"></a>消息队列有什么优点和缺点?</h2><p>为什么使用消息队列?假设你的业务场景遇到个技术挑战，如果不用 MQ 可能会很麻烦，但是你用了 MQ 之后会带给你很多好处。</p>
 <p>消息队列 MQ 的常见使用场景其实有很多，但是比较核心的有如下三个：</p>
 <p>解耦<br>异步<br>削峰<br>解耦：A 系统发送个数据到 BCD 三个系统，接口调用发送，那如果 E 系统也要这个数据呢?那如果 C 系统现在不需要了呢?</p>
 <p>现在 A 系统又要发送第二种数据了呢?而且 A 系统要时时刻刻考虑 BCDE 四个系统如果挂了咋办?要不要重发?我要不要把消息存起来?</p>
@@ -417,8 +416,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##springboot的常用注解与作用</p>
-<p>@SpringBootApplication，替代@SpringBootConfiguration、@EnableAutoConfiguration、@ComponentScan<br>@ImportAutoConfiguration，导入配置类，一般做测试的时候用，正常优先使用@EnableAutoConfiguration<br>@SpringBootConfiguration，替代@Configuration<br>@ImportResource，将资源导入容器中<br>@PropertySource，导入properties文件<br>@PropertySources，@PropertySource的集合<br>@Role，bean角色定义ROLE_APPLICATION(默认值)、ROLE_SUPPORT(辅助角色)、ROLE_INFRASTRUCTURE(后台角色，用户无感)<br>@Scope，指定bean的作用域，默认singleton，其他包括prototype、request、session、globalSession<br>@Lazy，使bean懒加载，取消bean预初始化。用法：bean注册的地方加上@Lazy和用的地方加上@Lazy<br>@Primary，自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为首选者，否则将抛出 异常<br>@Profile，指定bean在哪个环境被激活<br>@DependsOn，依赖的bean注册完成，才注册当前类，依赖bean不存在会报错。用于控制bean加载的顺序<br>@PostConstruct，bean的属性都注入完之后，执行注解标注的方法进行初始化工作<br>@Autowired， 默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用<br>@Lookup，根据方法返回的类型，去容器中捞出对应的bean。适合单例作用域引用非单例的情况。<br>@Qualifier，申明bean名字，且可以按bean名字加载bean<br>@Required，检查bean的属性setXXX()方法，要求属性在配置阶段必须已配置<br>@Value，值注入，@Value(“${xxx}”)注入配置文件中的值；@Value(“#{xxx}”)支持spel，可注入bean、常量等<br>@SpringBootConfiguration，包装@Configuration<br>@Description，添加bean的文字描述<br>@EnableAspectJAutoProxy，启动AspectJ自动代理<br>@EnableLoadTimeWeaving，启用类加载器动态增强功能，使用Instrumentation实现<br>@AutoConfigurationPackage，包含该注解的package会被AutoConfigurationPackages注册<br>@AutoConfigureBefore，在指定配置类初始化前加载<br>@AutoConfigureAfter，在指定配置类初始化后加载<br>@AutoConfigureOrder，指定配置类初始化顺序，越小初始化越早</p>
+        <h2 id="springboot的常用注解与作用"><a href="#springboot的常用注解与作用" class="headerlink" title="springboot的常用注解与作用"></a>springboot的常用注解与作用</h2><p>@SpringBootApplication，替代@SpringBootConfiguration、@EnableAutoConfiguration、@ComponentScan<br>@ImportAutoConfiguration，导入配置类，一般做测试的时候用，正常优先使用@EnableAutoConfiguration<br>@SpringBootConfiguration，替代@Configuration<br>@ImportResource，将资源导入容器中<br>@PropertySource，导入properties文件<br>@PropertySources，@PropertySource的集合<br>@Role，bean角色定义ROLE_APPLICATION(默认值)、ROLE_SUPPORT(辅助角色)、ROLE_INFRASTRUCTURE(后台角色，用户无感)<br>@Scope，指定bean的作用域，默认singleton，其他包括prototype、request、session、globalSession<br>@Lazy，使bean懒加载，取消bean预初始化。用法：bean注册的地方加上@Lazy和用的地方加上@Lazy<br>@Primary，自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为首选者，否则将抛出 异常<br>@Profile，指定bean在哪个环境被激活<br>@DependsOn，依赖的bean注册完成，才注册当前类，依赖bean不存在会报错。用于控制bean加载的顺序<br>@PostConstruct，bean的属性都注入完之后，执行注解标注的方法进行初始化工作<br>@Autowired， 默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用<br>@Lookup，根据方法返回的类型，去容器中捞出对应的bean。适合单例作用域引用非单例的情况。<br>@Qualifier，申明bean名字，且可以按bean名字加载bean<br>@Required，检查bean的属性setXXX()方法，要求属性在配置阶段必须已配置<br>@Value，值注入，@Value(“${xxx}”)注入配置文件中的值；@Value(“#{xxx}”)支持spel，可注入bean、常量等<br>@SpringBootConfiguration，包装@Configuration<br>@Description，添加bean的文字描述<br>@EnableAspectJAutoProxy，启动AspectJ自动代理<br>@EnableLoadTimeWeaving，启用类加载器动态增强功能，使用Instrumentation实现<br>@AutoConfigurationPackage，包含该注解的package会被AutoConfigurationPackages注册<br>@AutoConfigureBefore，在指定配置类初始化前加载<br>@AutoConfigureAfter，在指定配置类初始化后加载<br>@AutoConfigureOrder，指定配置类初始化顺序，越小初始化越早</p>
 <p>组件注册<br>@ComponentScans，@ComponentScan集合<br>@ComponentScan，扫描启动类目录下的所有符合条件的Bean，并注入容器<br>@Component，泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注<br>@Controller，用于标注控制层组件<br>@Repository，用于标注数据访问组件，即DAO组件<br>@Service，用于标注业务层组件<br>@Configuration，表名类里的包含@Bean注解标注的方法<br>@Bean，用在@Configuration和@Component注解下的类里面的方法上。@Configuration类里面，@Bean注解的方法被类中其他方法调用时，会注入bean而不会执行方法本身；@Component类里面，@Bean注解的方法被类中其他方法调用时，会执行方法本身，不会注入bean；被注解的方法如果是静态(static)，bean的注册时间可能比所在类的注册时间早。<br>@EnableAutoConfiguration，开启自动注册配置文件，例如会去META-INF/spring.factories找需要自动转载的类<br>@Import，将class导入容器中</p>
 <p>选择器<br>@Conditional，当指定的条件都满足时，组件才被注册<br>@ConditionalOnBean，指定bean在上下文中时，才注册当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnClass，指定类在classpath上时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnCloudPlatform，在指定云平台才注册配置<br>@ConditionalOnExpression，指定spel为true时注册配置<br>@ConditionalOnJava，在指定java版本时注册配置<br>@ConditionalOnJndi<br>@ConditionalOnMissingBean，指定bean不在上下文中时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnMissingClass，指定类不在classpath上时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnNotWebApplication，不是在web环境才注册配置<br>@ConditionalOnProperty，配置文件中的值与指定值是否相等，相等才注册配置<br>@ConditionalOnResource，指定resources都在classpath上才注册配置<br>@ConditionalOnSingleCandidate，上下文中只有一个候选者bean时才注册配置<br>@ConditionalOnWebApplication，是在web环境才注册配置</p>
 <p>缓存<br>@EnableCaching，开启缓存配置，支持子类代理或者AspectJ增强<br>@CacheConfig，在一个类下，提供公共缓存配置<br>@Cacheable，放着方法和类上，缓存方法或类下所有方法的返回值<br>@CachePut，每次先执行方法，再将结果放入缓存<br>@CacheEvict，删除缓存<br>@Caching，可以配置@Cacheable、@CachePut、@CacheEvict</p>
@@ -460,15 +458,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##关于hexo框架的使用以及git使用、部署到远端的学习</p>
-<p>很早之前就了解了一些关于博客的框架，然后在B站里面看到了B站UP：codesheep发出关于hexo框架搭建博客的教程，使用比较简单，但是过程还需要安装git以及申请github账号，最后将项目部署到github托管。<br>由于up用的是苹果，有些操作与Windows10有点区别，加上我电脑没有安装git，所以在git上面花了一个晚上找了视频快速的学了。</p>
+        <h2 id="关于hexo框架的使用以及git使用、部署到远端的学习"><a href="#关于hexo框架的使用以及git使用、部署到远端的学习" class="headerlink" title="关于hexo框架的使用以及git使用、部署到远端的学习"></a>关于hexo框架的使用以及git使用、部署到远端的学习</h2><p>很早之前就了解了一些关于博客的框架，然后在B站里面看到了B站UP：codesheep发出关于hexo框架搭建博客的教程，使用比较简单，但是过程还需要安装git以及申请github账号，最后将项目部署到github托管。<br>由于up用的是苹果，有些操作与Windows10有点区别，加上我电脑没有安装git，所以在git上面花了一个晚上找了视频快速的学了。</p>
 <p>关于git的学习总结：<br>需要再找时间学习一下linux相关的知识以及命令操作语句。<br>第一次安装完git的时候需要先初始化一下账号和邮箱，使得后续在项目可以通过git的本地仓库传输到远端仓库管理代码。</p>
 <p>git向仓库添加文件流程：<br>    工作区-》暂存区-》git仓库</p>
 <p>常用的语句：<br>1、查询文件状态<br>    git status<br>2、将文件从工作区提交到暂存区<br>     git add 文件名.文件格式<br>3、将文件从暂存区提交到git仓库<br>    git commit -m “提交描述，关于文件的一些大概描述”<br>4、克隆仓库（地址在GitHub上获取，克隆第5的传输就是传输到该远端仓库）<br>    git clone url地址<br>5、将文件从本地仓库文件传递到远端仓库<br>    git push</p>
 <p>关于初始化的语句：<br>1、设置用户名<br>    git config –global user.name ‘用户名’<br>2、设置邮箱<br>    git config –global user.email ‘邮箱’<br>3、初始化git仓库<br>    git init</p>
 <p>关于文件操作的语句：<br>1、创建文件夹<br>    mkdir 文件夹名<br>2、创建文件<br>    touch 文件名.文件类型<br>3、修改文件内容并保存（修改完既回到工作区，所以需要重新提交）<br>    vim 文件名.文件类型<br>    :wq</p>
 <p>关于github搭建网站<br>访问的地址<br>    http://用户名.github.io<br>仓库名必须是 ：用户名.github.io<br>在仓库下创建index.html的文件即可</p>
-<p>关于hexo的框架：<br>1、初始化博客<br>    hexo init 文件夹名<br>2、新建文章<br>    hexo n 文件名称<br>3、清理<br>    hexo clean<br>4、生成<br>    hexo g<br>5、启动服务<br>    hexo s<br>6、一键部署<br>    hexo d</p>
+<p>关于hexo的框架：<br>1、初始化博客<br>    hexo init 文件夹名<br>2、新建文章<br>    hexo n ‘文件名称’<br>3、清理<br>    hexo clean<br>4、生成<br>    hexo g<br>5、启动服务<br>    hexo s<br>6、一键部署<br>    hexo d</p>
 <p>使用该框架时候需要先安装node，Windows需要使用git以及cmd<br>总结完毕，洗洗睡。</p>
 <hr>
 
