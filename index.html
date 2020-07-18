@@ -64,6 +64,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL的复习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-18T01:58:14.734Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/">MySQL的复习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Mysql复习与学习<br>date: 2020-07-18 09:58:14<br>tags:</p>
+<hr>
+<h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系类型数据库"><a href="#关系类型数据库" class="headerlink" title="关系类型数据库"></a>关系类型数据库</h3><ul>
+<li>通过表和表之间，行和列之间的关系进行数据的存储</li>
+<li>常见的MySQL、Oracle、DB2</li>
+</ul>
+<h3 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h3><ul>
+<li>非关系型型数据库，对象存储，通过对象自身的属性来决定。</li>
+<li>常见的有Redis、MongDB</li>
+</ul>
+<h2 id="DBMS（数据管理系统）"><a href="#DBMS（数据管理系统）" class="headerlink" title="DBMS（数据管理系统）"></a>DBMS（数据管理系统）</h2><ul>
+<li>数据库管理软件，科学有效的管理数据、维护和获取数据；</li>
+<li>Mysql，数据库管理系统</li>
+<li>5.7版本属于比较稳定版本</li>
+<li>8.0版本驱动与5.7不一样，所以有时候需要配置一些不同的配置</li>
+</ul>
+<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><pre><code>当表名或者字段名是一个特殊字符或者是关键字，就需要``，例如user
+
+数据库相关的SQL
+    SHOW DATABASES;        --查看所有数据库
+    CREATE DATABASE shool;    --创建shool数据库，shool是数据库名
+    SHOW CREATE DATABASE shool    --查看shool数据库详情
+    DROP DATABASE shool;    --删除shool数据库
+    USE shool;    --使用shool数据库
+
+表相关的
+    CREATE TABLE ti (name VARCHAR(255),age INT) CHARSET=UTF8;    --创建表
+    SHOW TABLES;    --展示所有表
+    SHOW CREATE TABLES t1;    --查看t1表详情
+    DESC ti;    --查看t1表字段
+    DROP TABLE ti;    --删除t1表
+    REMANE TABLE ti TO t2;    --将t1表改名为t2表
+
+    ALTER TABLE t1 ADD id INT;    --添加字段id到表t1的最后面
+    ALTER TABLE t1 ADD id INT FIRST;    --添加id字段到t1表的最前面 
+    ALTER TABLE t1 ADD id INT AFTER name;    --添加id字段到name字段的后面
+    ALTER TABLE t1 DROP id;        --删除t1表的id字段
+    ALTER TABLE t1 CHANGE id uid INT;    --将t1表表字段id修改成uid，注意新名后面记得跟新类型</code></pre><h2 id="数据库的列类型"><a href="#数据库的列类型" class="headerlink" title="数据库的列类型"></a>数据库的列类型</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><ul>
+<li>tinyint  十分小的数据   1个字节</li>
+<li>smallint  较小的数据    2个字节</li>
+<li>mediumint 中等大小的数据 3个字节</li>
+</ul>
+<p>** - int       标准的整数      4个字节 常用的**</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/" data-id="ckcrb4ops00001cu30bvh8y57" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SpringBoot复习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/17/SpringBoot%E5%A4%8D%E4%B9%A0/" class="article-date">
@@ -645,6 +725,10 @@ public void getConnection() throws SQLException {
       <ul>
         
           <li>
+            <a href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/">MySQL的复习</a>
+          </li>
+        
+          <li>
             <a href="/2020/07/17/SpringBoot%E5%A4%8D%E4%B9%A0/">SpringBoot复习</a>
           </li>
         
@@ -658,10 +742,6 @@ public void getConnection() throws SQLException {
         
           <li>
             <a href="/2020/06/30/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/27/MQ%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">MQ中间件的学习</a>
           </li>
         
       </ul>
