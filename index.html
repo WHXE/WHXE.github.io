@@ -89,7 +89,7 @@
         <hr>
 <p>title: Mysql复习与学习<br>date: 2020-07-18 09:58:14<br>tags:</p>
 <hr>
-<h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系类型数据库"><a href="#关系类型数据库" class="headerlink" title="关系类型数据库"></a>关系类型数据库</h3><ul>
+<h1 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h1><h3 id="关系类型数据库"><a href="#关系类型数据库" class="headerlink" title="关系类型数据库"></a>关系类型数据库</h3><ul>
 <li>通过表和表之间，行和列之间的关系进行数据的存储</li>
 <li>常见的MySQL、Oracle、DB2</li>
 </ul>
@@ -97,40 +97,287 @@
 <li>非关系型型数据库，对象存储，通过对象自身的属性来决定。</li>
 <li>常见的有Redis、MongDB</li>
 </ul>
-<h2 id="DBMS（数据管理系统）"><a href="#DBMS（数据管理系统）" class="headerlink" title="DBMS（数据管理系统）"></a>DBMS（数据管理系统）</h2><ul>
+<h1 id="DBMS（数据管理系统）"><a href="#DBMS（数据管理系统）" class="headerlink" title="DBMS（数据管理系统）"></a>DBMS（数据管理系统）</h1><ul>
 <li>数据库管理软件，科学有效的管理数据、维护和获取数据；</li>
 <li>Mysql，数据库管理系统</li>
 <li>5.7版本属于比较稳定版本</li>
 <li>8.0版本驱动与5.7不一样，所以有时候需要配置一些不同的配置</li>
 </ul>
-<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><pre><code>当表名或者字段名是一个特殊字符或者是关键字，就需要``，例如user
-
-数据库相关的SQL
-    SHOW DATABASES;        --查看所有数据库
-    CREATE DATABASE shool;    --创建shool数据库，shool是数据库名
-    SHOW CREATE DATABASE shool    --查看shool数据库详情
-    DROP DATABASE shool;    --删除shool数据库
-    USE shool;    --使用shool数据库
-
-表相关的
-    CREATE TABLE ti (name VARCHAR(255),age INT) CHARSET=UTF8;    --创建表
-    SHOW TABLES;    --展示所有表
-    SHOW CREATE TABLES t1;    --查看t1表详情
-    DESC ti;    --查看t1表字段
-    DROP TABLE ti;    --删除t1表
-    REMANE TABLE ti TO t2;    --将t1表改名为t2表
-
-    ALTER TABLE t1 ADD id INT;    --添加字段id到表t1的最后面
-    ALTER TABLE t1 ADD id INT FIRST;    --添加id字段到t1表的最前面 
-    ALTER TABLE t1 ADD id INT AFTER name;    --添加id字段到name字段的后面
-    ALTER TABLE t1 DROP id;        --删除t1表的id字段
-    ALTER TABLE t1 CHANGE id uid INT;    --将t1表表字段id修改成uid，注意新名后面记得跟新类型</code></pre><h2 id="数据库的列类型"><a href="#数据库的列类型" class="headerlink" title="数据库的列类型"></a>数据库的列类型</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><ul>
+<h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">当表名或者字段名是一个特殊字符或者是关键字，就需要&#96;&#96;，例如user</span><br><span class="line"></span><br><span class="line">数据库相关的SQL</span><br><span class="line">	SHOW DATABASES;		--查看所有数据库</span><br><span class="line">	CREATE DATABASE shool;	--创建shool数据库，shool是数据库名</span><br><span class="line">	SHOW CREATE DATABASE shool	--查看shool数据库详情</span><br><span class="line">	DROP DATABASE shool;	--删除shool数据库</span><br><span class="line">	USE shool;	--使用shool数据库</span><br><span class="line"></span><br><span class="line">表相关的</span><br><span class="line">	CREATE TABLE t1 (name VARCHAR(255),age INT) CHARSET&#x3D;UTF8;	--创建表</span><br><span class="line">	SHOW TABLES;	--展示所有表</span><br><span class="line">	SHOW CREATE TABLES t1;	--查看t1表详情</span><br><span class="line">	DESC t1;	--查看t1表字段</span><br><span class="line">	DROP TABLE t1;	--删除t1表</span><br><span class="line">	RENAME TABLE t1 TO t2;	--将t1表改名为t2表</span><br><span class="line">	</span><br><span class="line">	ALTER TABLE t1 ADD id INT;	--添加字段id到表t1的最后面</span><br><span class="line">	ALTER TABLE t1 ADD id INT FIRST;	--添加id字段到t1表的最前面 </span><br><span class="line">	ALTER TABLE t1 ADD id INT AFTER name;	--添加id字段到name字段的后面</span><br><span class="line">	ALTER TABLE t1 DROP id;		--删除t1表的id字段</span><br><span class="line">	ALTER TABLE t1 CHANGE id uid INT;	--将t1表表字段id修改成uid，注意新名后面记得跟新类型</span><br><span class="line">	ALTER TABLE t1 MODIFY id VARCHAR(20); --修改约束</span><br></pre></td></tr></table></figure>
+<h1 id="数据库的列类型"><a href="#数据库的列类型" class="headerlink" title="数据库的列类型"></a>数据库的列类型</h1><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><ul>
 <li>tinyint  十分小的数据   1个字节</li>
 <li>smallint  较小的数据    2个字节</li>
 <li>mediumint 中等大小的数据 3个字节</li>
+<li>int       标准的整数      4个字节  常用的</li>
+<li>bigint    较大的数据     8个字节</li>
+<li>float     浮点数         4个字节</li>
+<li>double    浮点数         8个字节（精度问题）、</li>
+<li>decimal   字符串形式的浮点数 金融计算一般使用该数据类型，在JAVA中也有对应的类</li>
 </ul>
-<p>** - int       标准的整数      4个字节 常用的**</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li>char      字符串固定大小的  0-255</li>
+<li>varchar   可变字符串        0-65535     常用的，对应JAVA中的String</li>
+<li>tinytext  微型文本          2^8-1</li>
+<li>text      文本串            2^16-1    保存大文本，例如博客文章之类的</li>
+</ul>
+<h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><ul>
+<li>date      YYYY-MM-DD  日期格式</li>
+<li>time      HH: mm: ss  时间格式</li>
+<li>datetime  YYYY-MM-DD HH: mm: ss 最常用的时间格式   最常用的</li>
+<li>timestamp 时间戳，  1970.1.1到现在的毫秒数   也是常用的</li>
+<li>year      年份代表</li>
+</ul>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><ul>
+<li>没有值，未知</li>
+<li>注意不要使用null进行计算，结果为null</li>
+</ul>
+<h1 id="数据库的字段属性（重点）"><a href="#数据库的字段属性（重点）" class="headerlink" title="数据库的字段属性（重点）"></a>数据库的字段属性（重点）</h1><p> Unsigned：</p>
+<ul>
+<li>无符号的整数</li>
+<li>声明了该列表不能为负数</li>
+</ul>
+<p>zerfill：</p>
+<ul>
+<li>0填充的</li>
+<li>不足的位数用0来填充，  例如： int（3）  5会变成005</li>
+</ul>
+<p>自增</p>
+<ul>
+<li>通常理解为自增，自动在上一条记录的基础上+1（默认，这是可修改的）</li>
+<li>通常用来设计唯一的主键 index ，但必须是整数类型</li>
+</ul>
+<p>非空</p>
+<ul>
+<li>设置为not null，如果不给他赋值，他就会报错</li>
+<li>NULL  如果不填写值，默认就是null！</li>
+</ul>
+<p>默认：</p>
+<ul>
+<li>设置默认的值！</li>
+<li>sex，默认设置为男，如果不指定该列的值，就会有默认的值！</li>
+</ul>
+<p><strong>数据库必须要有的字段</strong><br>1、id 主键<br>2、version 乐观锁<br>3、id_delete 伪删除<br>4、gmt_create 创建时间<br>5、gmt_update 修改时间</p>
+<p>每个表必须会有这五个字段，表示一个记录的存在意义</p>
+<h1 id="建立字段的表的格式"><a href="#建立字段的表的格式" class="headerlink" title="建立字段的表的格式"></a>建立字段的表的格式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE t_user (</span><br><span class="line">  uid INT AUTO_INCREMENT COMMENT &#39;用户id&#39;,</span><br><span class="line">  username VARCHAR(20) NOT NULL UNIQUE COMMENT &#39;用户名&#39;,</span><br><span class="line">  password CHAR(32) NOT NULL COMMENT &#39;密码&#39;,</span><br><span class="line">  salt CHAR(36) COMMENT &#39;盐值&#39;,</span><br><span class="line">  phone VARCHAR(20) COMMENT &#39;手机号码&#39;,</span><br><span class="line">  email VARCHAR(30) COMMENT &#39;电子邮箱&#39;,</span><br><span class="line">  gender INT(1) COMMENT &#39;性别：0-女，1-男&#39;,</span><br><span class="line">  avatar VARCHAR(100) COMMENT &#39;头像&#39;,</span><br><span class="line">  is_delete INT(1) COMMENT &#39;是否标记为删除，0-未删除，1-已删除&#39;,</span><br><span class="line">  created_user VARCHAR(20) COMMENT &#39;创建人&#39;,</span><br><span class="line">  created_time DATETIME COMMENT &#39;创建时间&#39;,</span><br><span class="line">  modified_user VARCHAR(20) COMMENT &#39;最后修改人&#39;,</span><br><span class="line">  modified_time DATETIME COMMENT &#39;最后修改时间&#39;,</span><br><span class="line">  PRIMARY KEY (uid)</span><br><span class="line">)ENGINE&#x3D;INNODB DEFAULT CHARSET&#x3D;utf8mb4;</span><br></pre></td></tr></table></figure>
+<p>格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名（</span><br><span class="line">字段名 列类型 属性 索引 注释，</span><br><span class="line">字段名 列类型 属性 索引 注释，</span><br><span class="line">......</span><br><span class="line">字段名 列类型 属性 索引 注释，</span><br><span class="line">设置主键</span><br><span class="line">）设置引擎 设置字符集</span><br><span class="line"></span><br><span class="line"> password【字段名】 CHAR(32)【列类型】 NOT NULL【属性】 COMMENT &#39;密码&#39;【注释】, </span><br><span class="line"> ENGINE&#x3D;INNODB【引擎】 DEFAULT CHARSET&#x3D;utf8mb4【字符集】;</span><br></pre></td></tr></table></figure>
+<h1 id="数据库引擎"><a href="#数据库引擎" class="headerlink" title="数据库引擎"></a>数据库引擎</h1><ul>
+<li>INNODB 默认使用</li>
+<li>MYISAM 早期使用<br>常规使用操作：</li>
+<li>MYISAM 节约空间，速度快</li>
+<li>INNODB 安全性高，支持事务的处理，由于支持外键，可以多表多用户操作</li>
+</ul>
+<h3 id="在物理空间存在的位置"><a href="#在物理空间存在的位置" class="headerlink" title="在物理空间存在的位置"></a>在物理空间存在的位置</h3><p>所有的数据库文件都存在data目录下<br>本质还是文件的存储！<br>Mysql 引擎在物理文件上的区别</p>
+<ul>
+<li>INNODB在数据库表中只有一个*.frm文件，以及上级目录下的ibdata1文件</li>
+<li>MYISAM对应文件1、*.frm  表结构的定义文件</li>
+<li>2、*.MYD   数据文件（data）</li>
+<li>3、*.MYI  索引文件（index）      </li>
+</ul>
+<h1 id="Mysql-数据库管理"><a href="#Mysql-数据库管理" class="headerlink" title="Mysql 数据库管理"></a>Mysql 数据库管理</h1><h3 id="外键（了解即可）"><a href="#外键（了解即可）" class="headerlink" title="外键（了解即可）"></a>外键（了解即可）</h3><p>删除有外键关系表的时候，必须先删除引用别人的表（从表），在删除被引用的表（主表）<br>链接：<a href="https://pan.baidu.com/s/1rQiDEy2N4T-bmxsflQNPAQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1rQiDEy2N4T-bmxsflQNPAQ</a><br>提取码：1458</p>
+<p>以上是物理级别的外键，不建议使用，了解即可</p>
+<p>逻辑外键这是常见的，数据库值单纯的存表、数据即可，想要用外键，在JAVA代码中通过代码实现</p>
+<h3 id="DML语言（既增删改）"><a href="#DML语言（既增删改）" class="headerlink" title="DML语言（既增删改）"></a>DML语言（既增删改）</h3><p>数据库意义：数据存储、数据管理<br>DML语言：数据操作语言</p>
+<ul>
+<li>insert</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO T1(name,age) values(&#39;Lilei&#39;,18),(&#39;Hanmeimei&#39;,19);</span><br><span class="line">批量插入格式: insert into 表名(字段1，字段2) values(值1,值2),(值1,值2),(值1,值2);</span><br></pre></td></tr></table></figure>
+<p>注意事项：<br>  1、字段与字段之间用 英文逗号 隔开<br>  2、字段可以省略，但是后面的值必须要一一对应，不能少<br>  3、插入多条数据，VALUES 后面的值要适应 英文逗号 隔开即可</p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>update 表名 set xxx=xxx where 条件;<br>update 表名 set name=’是鸽鲨手’,age=23 WHERE id = 1;<br>第一句更改单个值，第二个更改多个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE person SET age&#x3D;30 WHERE name&#x3D;&#39;Jerry&#39;;</span><br><span class="line">UPDATE person SET age&#x3D;20 WHERE age is null;</span><br></pre></td></tr></table></figure>
+<p>关于区间查询进行修改操作：<br>链接：<a href="https://pan.baidu.com/s/17iXmpuRmebheOPU9K6A7Dg" target="_blank" rel="noopener">https://pan.baidu.com/s/17iXmpuRmebheOPU9K6A7Dg</a><br>提取码：1458</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>delete from 表名 where 条件;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete from person where age&#x3D;20;</span><br><span class="line">delete from person where name&#x3D;&#39;Tom&#39;;</span><br><span class="line">delete from person; 	--避免这样这，这样会清空表</span><br></pre></td></tr></table></figure>
+<p>TRUNCATE命令<br>作用：完全清空一个数据库表，表的结构和索引约束不会变<br>TRUNCATE 表名；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE t1;</span><br></pre></td></tr></table></figure>
+
+<p>TRUNCATE与delete from person的区别</p>
+<ul>
+<li>相同点：都能删除数据，不会删除表结构</li>
+<li>不同:TRUNCATE会重新设置，自增列计数器会归零，而且不影响事务</li>
+</ul>
+<p>了解即可：DELETE删除的问题，重启数据库，现象</p>
+<ul>
+<li>INNODB 自增列会重1开始（存在内存当中，断电即失）</li>
+<li>MYISAM 继续从上一个自增量开始（存在文件中，不会丢失）</li>
+</ul>
+<h3 id="DQL查询数据（重点）"><a href="#DQL查询数据（重点）" class="headerlink" title="DQL查询数据（重点）"></a>DQL查询数据（重点）</h3><p>DQL（Date Query LANGUAGE:数据查询语言）</p>
+<ul>
+<li>所有的查询操作都用它 Select</li>
+<li>简单的查询，复杂的查询它都能做</li>
+<li>数据库中最核心的语言，最重要的语句</li>
+<li>使用频率最高的语句</li>
+</ul>
+<p>SELECT完整语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段</span><br><span class="line">FROM 表</span><br><span class="line">LEFT JOIN     --联合查询</span><br><span class="line">WHERE         --查询满足的条件</span><br><span class="line">GROUP BY      --指定结果按照哪个字段分组</span><br><span class="line">HAVING		  --过滤分组的记录必须满足的次要条件</span><br><span class="line">ORDER BY	  --指定查询记录按一个活多个条件排序</span><br><span class="line">LIMIT		  --指定查询记录从哪条到哪条（分页）</span><br></pre></td></tr></table></figure>
+
+<p>指定查询字段<br>SELECT 字段 FROM 表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from person; 查询表中所有的数据</span><br><span class="line">select name from person; 查询所有的名字</span><br><span class="line">select * from person where age&gt;50; 查询年龄大于50岁的信息</span><br></pre></td></tr></table></figure>
+
+<p>当列名不是见名知意，我们起别名 AS      （字段名 AS 别名）（表名 AS 别名）<br>效果：可以让列名或者表名查询出来后改变列或者表名，下面SQL查询出来，“student”字段会变成“学号”，”studentName“变成“学生姓名”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT student AS 学号,studentName AS 学生姓名 FROM student AS s;</span><br></pre></td></tr></table></figure>
+
+<p>函数 CONCAT（a，b）<br>效果：下面SQL查询出来后，原本查询出来的字段只会出现学生名字（张三），添加会变成“姓名：+查询出来的studentName结果”（姓名：张三）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNCAT(&#39;姓名：&#39;,studentName) FROM student;</span><br></pre></td></tr></table></figure>
+<p>去重复 DISTINCT<br>效果：去除SELECT查询出来重复的结果，只显示一条</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT &#96;studentno&#96; FROM result;</span><br></pre></td></tr></table></figure>
+
+<p>计算符号<br>效果：直接对数据进行算术操作（+，-，*，/，%）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT &#96;studentno&#96;,&#39;StudentResult&#39;+1 AS 所有分数加一分 FROM result</span><br></pre></td></tr></table></figure>
+
+<p>数据库中的表达式：文本值，列，null，函数，计算书，系统变量…<br>格式：SELECT 表达式 FROM 表</p>
+<p>###where条件子句<br>作用：检索条件中符合的值<br>搜索的条件由一个或者多个表达式组成，结果为布尔值<br>效果：查询学生成绩在95到100中间的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM result WHERE StrudentResult BETWEEN 95 AND 100</span><br></pre></td></tr></table></figure>
+<p>符号参考“修改”下面链接的图片内容<br>逻辑符号在这里尽量更换成对应的单词使用<br>链接：<a href="https://pan.baidu.com/s/1js3W5qYHb4a60WeSScL9mw" target="_blank" rel="noopener">https://pan.baidu.com/s/1js3W5qYHb4a60WeSScL9mw</a><br>提取码：1458</p>
+<h3 id="连表查询-JOIN"><a href="#连表查询-JOIN" class="headerlink" title="连表查询 JOIN"></a>连表查询 JOIN</h3><p>做连表的思路：<br>1、分析需求，分析查询的字段来自哪些表，（连表查询）<br>2、确定使用7种链接的哪种<br>确定交叉点（两个表中哪个数据是相同的）<br>判断的条件：学生表中 studentNO=成绩表 studentNo</p>
+<p>连接操作<br>INNER JOIN  如果表中至少有一个匹配，就返回行<br>LEFT JOIN   会从左表返回所有值，即使右表没有匹配<br>RIGHT JOIN  会从右表返回所有值</p>
+<p>where和on的区别：where先连表后筛选，on先筛选后连表<br>模棱两可的字段记得选择是哪张表的字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT s.studentno,studentname,subjectno,&#96;studentresult&#96;</span><br><span class="line">FROM student s</span><br><span class="line">INNER JOIN result r</span><br><span class="line">WHERE s.studentno&#x3D;r.studentno</span><br></pre></td></tr></table></figure>
+<p>上面是两张表连查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT studentNO,stuentName，SubjectName，StudentResult</span><br><span class="line">FROM student s</span><br><span class="line">RIGHT JOIN result r</span><br><span class="line">ON r.studentNo&#x3D;s.studentNo</span><br><span class="line">INNER JOIN subject sub</span><br><span class="line">ON r.SubjectNo&#x3D;sub.SubjectNo</span><br></pre></td></tr></table></figure>
+<p>上面三表连查</p>
+<p>多表连查要点</p>
+<ul>
+<li>我要查询哪些数据 Select …</li>
+<li>从哪些表查询 FROM 表 xxx JOIN 链接的表 ON 交叉条件</li>
+<li>假设存在多张表查询，慢慢增加，先查询两张表，在查询第三张表、第四张表</li>
+</ul>
+<p>左链接以左表为基准，右连接以右表为基准<br>比如有一个学生数据没参加考试，用左查询查询也会将该学生查询出来（左边学生表右边考试成绩表），右查连接不会出现该学生</p>
+<p>JOIN（连接的表）ON （判断条件）  连接查询<br>WHERE   等值查询</p>
+<h3 id="自连接（难点、了解点、建表偷懒）"><a href="#自连接（难点、了解点、建表偷懒）" class="headerlink" title="自连接（难点、了解点、建表偷懒）"></a>自连接（难点、了解点、建表偷懒）</h3><p>将原来该分为两张表建立的数据（有主从关系的数据）建立在同一张表，建立了对应的主从ID，后期查询主从关系使用的<br>自己的表和自己的表连接，核心：一张表拆成两张一样的表（父栏目与子栏目）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.name AS 父栏目,b.name AS 子栏目</span><br><span class="line">FROM user AS a, user AS b</span><br><span class="line">WHERE a.id&#x3D;b.id</span><br></pre></td></tr></table></figure>
+
+<h3 id="分页LIMIT与排序ORDER-BY"><a href="#分页LIMIT与排序ORDER-BY" class="headerlink" title="分页LIMIT与排序ORDER BY"></a>分页LIMIT与排序ORDER BY</h3><p>ORDER BY<br>分为升序（ASC）与降序排列（DESC）</p>
+<p>分页<br>意义：缓解数据库压力、给人更好的体验  （相对于瀑布流 ‘百度查询图片出来的结果就是瀑布流’）</p>
+<p>LIMIT 0,5     –从第1到第5的数据<br>0–起始的位置   5–页面的大小</p>
+<p>网页应用翻页计算<br>第N页 LIMIT （n-1）*p,p</p>
+<p>p：页面总大小<br>n：当前页数<br>（n-1）*p：起始值<br>数据总数/页面大小 = 总页数</p>
+<p>子查询（开发慎用，会导致服务器因为查询运行变慢）<br>在where中嵌套一个查询语句</p>
+<p>格式：<br>SELECT * FROM 表名 WHER  字段 in（select xxx from xxx）</p>
+<h3 id="Mysql函数"><a href="#Mysql函数" class="headerlink" title="Mysql函数"></a>Mysql函数</h3><p>常用函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">--数学函数</span><br><span class="line">SELECT ABS(-8)  --绝对值</span><br><span class="line">SELECT CELLING(9.4)  --向上取整</span><br><span class="line">SELECT FLOOR(9.4)    --向下取整</span><br><span class="line">SELECT SIGN(10)		--盘旋一个数的符号 正数返回1，负数返回-1</span><br><span class="line"></span><br><span class="line">--字符串函数</span><br><span class="line">SELECT CHAR_LENGTH(&#39;内容&#39;)  --字符串长度</span><br><span class="line">SELECT CONCAT(&#39;内容1&#39;,&#39;内容2&#39;,&#39;内容3&#39;)   --拼接字符串</span><br><span class="line">SELECT INSERT(&#39;HELLOWORD&#39;,1,2,&#39;ABCD&#39;)   --替换，从指定位置替换某个长度</span><br><span class="line">SELECT LOWER(&#39;ABCD&#39;)  --转小写</span><br><span class="line">SELECT UPPER(&#39;asd&#39;)	--转大写</span><br><span class="line">SELECT INSTR(&#39;HELLOWORD&#39;,&#39;H&#39;)  --查询第一次出现的位置</span><br><span class="line">SELECT REPLACE(&#39;ABCDE&#39;,&#39;BC&#39;,&#39;AE&#39;)  --替换字符串</span><br><span class="line">SELECT REVERSE(&#39;ABCDE&#39;)	--翻转字符串</span><br><span class="line"></span><br><span class="line">--时间和日期函数</span><br><span class="line">SELECT CURRENT_DATE() --获取当前日期</span><br><span class="line">SELECT CURDATE()  --获取当前日期</span><br><span class="line">SELECT NOW()  --获取当前的时间</span><br><span class="line">SELECT LOCALTIME()  --本地时间</span><br><span class="line">SELECT SYSDATE()  --系统时间</span><br></pre></td></tr></table></figure>
+<p>聚合函数<br>COUNT()<br>SUM()<br>AVG()<br>MAX()<br>MIN()</p>
+<h3 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h3><p>格式：<br>UPDATE 表名 SECT 字段名=MD5(字段名)</p>
+<p>插入前加密<br>INSERT INTO 表名 VALUES(4,’字段1’,MD5(‘字段2’))</p>
+<p>解密<br>SELECT * FROM 表名 WHERE 字段一=‘内容’ AND 字段二=MD5(‘内容’)</p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>要么都成功，要么都失败<br>mysql是自动开启事务自动提交的</p>
+<p>事务原则ACID：原子性、一致性、隔离性、持久性</p>
+<ul>
+<li>原子性：这两个步骤一起成功、或者一起失败，不能只有其中之一发生一个动作</li>
+<li>一致性：针对两个事务操作前后的状态一致性（最终一致性），事务前后的数据完整性要保证一致性</li>
+<li>持久性：事务的结束后的数据不随着外界原因导致数据丢失（事务如果没提交，恢复到原状。只要提交了，就不可逆，持久化到数据库上）</li>
+<li>隔离性：多个用户同时操作，排除其他事务对当前事务的影响</li>
+</ul>
+<p>隔离导致的问题：</p>
+<ul>
+<li>脏读：一个事务读取了另外一个事务未提交的数据</li>
+<li>不可重复读：在一个事务内读取某一行数据，多次读取结果不同。（不一定是错误，看场合）</li>
+<li>幻读：一个事务内读到了别的事务插入的数据，导致前后读取不一致</li>
+</ul>
+<p>流程图以及代码<br>链接：<a href="https://pan.baidu.com/s/1OugAtEQlMQ2z0LnMkd_kng" target="_blank" rel="noopener">https://pan.baidu.com/s/1OugAtEQlMQ2z0LnMkd_kng</a><br>提取码：1458</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>MySQL官方对索引的定义：索引是帮助MySQL高效获取数据的数据结构。索引是数据结构。</p>
+<p>索引的分类</p>
+<ul>
+<li>主键索引 （PRINARY KEY）<ul>
+<li>唯一标识，不可重复，只能有一个列作为主键</li>
+</ul>
+</li>
+<li>唯一索引  (UNIQUE KEY)<ul>
+<li>避免重复的列出现，唯一索引可以重复，多个列都可以标识唯一索引</li>
+</ul>
+</li>
+<li>常规索引  (KEY/INDEX)<ul>
+<li>默认的，index，key关键字来设置</li>
+</ul>
+</li>
+<li>全文索引  （FullText）<ul>
+<li>在特定的数据库引擎下才有，MyISAM</li>
+<li>快速定位数据</li>
+</ul>
+</li>
+</ul>
+<p>使用：<br>  1、在创建表的时候给字段增加索引<br>  2、创建完毕后，增加索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 显示索引</span><br><span class="line">SHOW INDEX FROM 表名</span><br><span class="line"></span><br><span class="line">-- 增加一个全文索引</span><br><span class="line">ALTER TANLE 表名 ADD FULLTEXT INDEX 索引名（列名）</span><br><span class="line">ALTER TANLE shool.student ADD FULLTEXT INDEX studentName(studentname);</span><br><span class="line"></span><br><span class="line">-- EXPLAIN 分析SQL执行的状况</span><br></pre></td></tr></table></figure>
+
+<p>索引原则</p>
+<ul>
+<li>索引不是越多越好</li>
+<li>不要对经常变动的数据加索引</li>
+<li>不要对小数据量加索引</li>
+<li>索引一般用再常用来查询的字段上</li>
+</ul>
+<p>索引的数据结构<br>Hash类型的索引<br>B+tree：InnoDB默认的索引</p>
+<p>在不同场景下用这两个的速度不一样，Hash类型的索引使用了Hash散列算法，在单独寻找一条记录的时候会比较快，但是在范围查询没有B+tree快。</p>
+<h1 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h1><p>为什么要备份：</p>
+<ul>
+<li>保证重要的数据不丢失</li>
+<li>数据转移</li>
+</ul>
+<p>备份方式：</p>
+<ul>
+<li>直接拷贝物理文件</li>
+<li>在可视化工具手动导出<ul>
+<li>可视化工具直接选择数据库右键即可</li>
+</ul>
+</li>
+<li>使用命令行导出 mysqldump<ul>
+<li>记得配置好环境变量才可以在CMD中导出，具体命令百度</li>
+</ul>
+</li>
+</ul>
+<p>导入：<br>** 导入表记得到对应的数据库中导入，导入数据库的话只要登录状态就可以直接登录 **</p>
+<ul>
+<li>source d:/文件名.sql<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source d:&#x2F;emp.sql;</span><br></pre></td></tr></table></figure>
+<h1 id="权限管理和备份"><a href="#权限管理和备份" class="headerlink" title="权限管理和备份"></a>权限管理和备份</h1>用户管理<br>内容百度，这是关于对数据库操做的权限，用户能对已有的表进行多大限度的操作，这是可控制的。</li>
+</ul>
+<h1 id="数据库的三大规约：三大范式"><a href="#数据库的三大规约：三大范式" class="headerlink" title="数据库的三大规约：三大范式"></a>数据库的三大规约：三大范式</h1><p>** 设置数据库的意义：当数据库比较复杂的时候，我们就需要设计 **</p>
+<p>糟糕的数据库设计：</p>
+<ul>
+<li>数据库冗余，浪费空间</li>
+<li>数据库插入和删除都会麻烦、异常【屏蔽使用物理外键】</li>
+<li>程序的性能差</li>
+</ul>
+<p>好的数据库</p>
+<ul>
+<li>节约空间</li>
+<li>保证数据库的完整性</li>
+<li>方便我们开发系统</li>
+</ul>
+<p>软件开发中关于数据库的设计：</p>
+<ul>
+<li>分析需求：分析业务需要处理的数据的需求</li>
+<li>概要设计： 设计关系图E-R图</li>
+</ul>
+<p>为什么需要数据规范化</p>
+<ul>
+<li>信息重复</li>
+<li>更新异常</li>
+<li>插入异常<ul>
+<li>无法正常显示信息</li>
+</ul>
+</li>
+<li>删除异常<ul>
+<li>丢失有效的信息</li>
+</ul>
+</li>
+</ul>
+<p>三大范式</p>
+<ul>
+<li>第一范式：要求数据库表的每一列是不可分割的原子数据项。保证原子性，减少歧义</li>
+<li>第二范式：需要先满足第一范式。每张表只描述一件事情</li>
+<li>第三范式：需要先满足前面两个范式。保证数据表中的每一列和主键都直接相关，不能间接相关。</li>
+</ul>
+<p>链接：<a href="https://pan.baidu.com/s/13cgFomc-aeXTGixd0_khBA" target="_blank" rel="noopener">https://pan.baidu.com/s/13cgFomc-aeXTGixd0_khBA</a><br>提取码：1458</p>
+<p>规范性和性能性不可额兼得。<br>关联的查询表最好不超过3张表。</p>
+<ul>
+<li>考虑商业化的需求和目标（陈本，用户体验）  数据库的性能更加重要</li>
+<li>在规范性能的问题的时候，需要适当考虑一下规范性！</li>
+<li>故意给某些表增加一些冗余字段。（多表查询变成单表查询）</li>
+<li>故意增加一些计算列（从大数据量降低为小数据量的查询：索引）</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
