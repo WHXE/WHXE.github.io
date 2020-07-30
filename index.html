@@ -64,6 +64,192 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-“VUE的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-30T10:06:00.000Z" itemprop="datePublished">2020-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/">“VUE的学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckd8musiq0000msu3di0a4q1p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-swagger的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/26/swagger%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-26T07:49:28.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/26/swagger%E7%9A%84%E5%AD%A6%E4%B9%A0/">swagger的学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
+<li>号称世界上最流行的API框架</li>
+<li>Restful Api文档在线生成器=》API文档与API定义同步更新</li>
+<li>直接运行，在线测试API</li>
+<li>支持多种语言</li>
+<li>官网：<a href="https://swagger.io/" target="_blank" rel="noopener">https://swagger.io/</a></li>
+</ul>
+<h3 id="springboot集成"><a href="#springboot集成" class="headerlink" title="springboot集成"></a>springboot集成</h3><p>加入依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;io.springfox&#x2F;springfox-swagger2 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.9.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;io.springfox&#x2F;springfox-swagger-ui --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;springfox-swagger-ui&lt;&#x2F;artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.9.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Configuration &#x2F;&#x2F;配置类</span><br><span class="line">@EnableSwagger2&#x2F;&#x2F; 开启Swagger2的自动配置</span><br><span class="line">public class SwaggerConfig &#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问测试 ：<a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a> ，可以看到swagger的界面；</p>
+<h3 id="配置Swagger"><a href="#配置Swagger" class="headerlink" title="配置Swagger"></a>配置Swagger</h3><p>1、Swagger实例Bean是Docket，所以通过配置Docket实例来配置Swaggger。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean &#x2F;&#x2F;配置docket以配置Swagger具体参数</span><br><span class="line">public Docket docket() &#123;</span><br><span class="line">return new Docket(DocumentationType.SWAGGER_2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、通过apiInfo()属性配置文档信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;配置文档信息</span><br><span class="line">private ApiInfo apiInfo()&#123;</span><br><span class="line">   Contact contact &#x3D; new Contact(&quot;联系人名字&quot;, &quot;http:&#x2F;&#x2F;xxx.xxx.com&#x2F;联系人访问链接&quot;, &quot;联系人邮箱&quot;);</span><br><span class="line">    return new ApiInfo(</span><br><span class="line">           &quot;Swagger学习&quot;, &#x2F;&#x2F; 标题</span><br><span class="line">           &quot;学习演示如何配置Swagger&quot;, &#x2F;&#x2F; 描述</span><br><span class="line">           &quot;v1.0&quot;, &#x2F;&#x2F; 版本</span><br><span class="line">           &quot;http:&#x2F;&#x2F;terms.service.url&#x2F;组织链接&quot;, &#x2F;&#x2F; 组织链接</span><br><span class="line">           contact, &#x2F;&#x2F; 联系人信息</span><br><span class="line">           &quot;Apach 2.0 许可&quot;, &#x2F;&#x2F; 许可</span><br><span class="line">           &quot;许可链接&quot;, &#x2F;&#x2F; 许可连接</span><br><span class="line">           new ArrayList&lt;&gt;()&#x2F;&#x2F; 扩展</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、Docket 实例关联上 apiInfo()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public Docket docket() &#123;</span><br><span class="line">   return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、重启项目，访问测试 <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a>  看下效果；</p>
+<h3 id="配置扫描接口"><a href="#配置扫描接口" class="headerlink" title="配置扫描接口"></a>配置扫描接口</h3><p>1、构建Docket时通过select()方法配置怎么扫描接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public Docket docket() &#123;</span><br><span class="line">   return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">      .apiInfo(apiInfo())</span><br><span class="line">      .select()&#x2F;&#x2F; 通过.select()方法，去配置扫描接口,RequestHandlerSelectors配置如何扫描接口</span><br><span class="line">      .apis(RequestHandlerSelectors.basePackage(&quot;com.kuang.swagger.controller&quot;))</span><br><span class="line">      .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、重启项目测试，由于我们配置根据包的路径扫描接口，所以我们只能看到一个类</p>
+<p>3、除了通过包路径配置扫描接口外，还可以通过配置其他方式扫描接口，这里注释一下所有的配置方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">any() &#x2F;&#x2F; 扫描所有，项目中的所有接口都会被扫描到</span><br><span class="line">none() &#x2F;&#x2F; 不扫描接口</span><br><span class="line">&#x2F;&#x2F; 通过方法上的注解扫描，如withMethodAnnotation(GetMapping.class)只扫描get请求</span><br><span class="line">withMethodAnnotation(final Class&lt;? extends Annotation&gt; annotation)</span><br><span class="line">&#x2F;&#x2F; 通过类上的注解扫描，如.withClassAnnotation(Controller.class)只扫描有controller注解的类中的接口</span><br><span class="line">withClassAnnotation(final Class&lt;? extends Annotation&gt; annotation)</span><br><span class="line">basePackage(final String basePackage) &#x2F;&#x2F; 根据包路径扫描接口</span><br></pre></td></tr></table></figure>
+
+<p>4、除此之外，我们还可以配置接口扫描过滤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public Docket docket() &#123;</span><br><span class="line">   return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">      .apiInfo(apiInfo())</span><br><span class="line">      .select()&#x2F;&#x2F; 通过.select()方法，去配置扫描接口,RequestHandlerSelectors配置如何扫描接口</span><br><span class="line">      .apis(RequestHandlerSelectors.basePackage(&quot;com.kuang.swagger.controller&quot;))</span><br><span class="line">       &#x2F;&#x2F; 配置如何通过path过滤,即这里只扫描请求以&#x2F;kuang开头的接口</span><br><span class="line">      .paths(PathSelectors.ant(&quot;&#x2F;kuang&#x2F;**&quot;))</span><br><span class="line">      .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5、这里的可选值还有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">any() &#x2F;&#x2F; 任何请求都扫描</span><br><span class="line">none() &#x2F;&#x2F; 任何请求都不扫描</span><br><span class="line">regex(final String pathRegex) &#x2F;&#x2F; 通过正则表达式控制</span><br><span class="line">ant(final String antPattern) &#x2F;&#x2F; 通过ant()控制</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Swagger开关"><a href="#配置Swagger开关" class="headerlink" title="配置Swagger开关"></a>配置Swagger开关</h3><h1 id="未完，先学习vue，后期再接着整理"><a href="#未完，先学习vue，后期再接着整理" class="headerlink" title="未完，先学习vue，后期再接着整理"></a>未完，先学习vue，后期再接着整理</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/26/swagger%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckd4kpm4e00015su398sxcaf6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MyBatisPlus复习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/20/MyBatisPlus%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-20T14:32:57.000Z" itemprop="datePublished">2020-07-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/20/MyBatisPlus%E5%A4%8D%E4%B9%A0/">MyBatisplus复习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MyBatis是简化数据库操作的一个框架，Plus则是增强版"><a href="#MyBatis是简化数据库操作的一个框架，Plus则是增强版" class="headerlink" title="MyBatis是简化数据库操作的一个框架，Plus则是增强版"></a>MyBatis是简化数据库操作的一个框架，Plus则是增强版</h1><p>官网：<a href="https://mp.baomidou.com/" target="_blank" rel="noopener">https://mp.baomidou.com/</a> MyBatis Plus，简化 MyBatis ！</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>无入侵</li>
+<li>损耗小</li>
+<li>强大的CRUD操作</li>
+<li>支持Lambda形式调用</li>
+<li>支持主键自动生成</li>
+<li>支持 ActiveRecord 模式</li>
+<li>支持自定义全局通用</li>
+<li>内置代码生成器</li>
+<li>内置分页插件</li>
+<li>分页插件支持多种数据库</li>
+<li>内置性能分析插件</li>
+<li>内置全局拦截插件</li>
+<li>使用该框架，Mybatisplus可以照样使用Mypatis的操作</li>
+</ul>
+<h3 id="入门的操作"><a href="#入门的操作" class="headerlink" title="入门的操作"></a>入门的操作</h3><ul>
+<li>导入依赖</li>
+<li>配置</li>
+<li>编写代码 </li>
+</ul>
+<h3 id="主键生成策略"><a href="#主键生成策略" class="headerlink" title="主键生成策略"></a>主键生成策略</h3><p> 雪花算法：snowﬂake是Twitter开源的分布式ID生成算法，结果是一个long型的ID。其核心思想是：使用41bit作为 毫秒数，10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID），12bit作为毫秒内的流水号（意味 着每个节点在每毫秒可以产生 4096 个 ID），后还有一个符号位，永远是0。可以保证几乎全球唯 一！</p>
+<h3 id="自动填充"><a href="#自动填充" class="headerlink" title="自动填充"></a>自动填充</h3><p>  创建时间、修改时间！这些个操作一遍都是自动化完成的，我们不希望手动更新！<br>阿里巴巴开发手册：所有的数据库表：gmt_create、gmt_modiﬁed几乎所有的表都要配置上！而且需 要自动化</p>
+<p>操作：<br>在对应的字段上添加注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 字段添加填充内容</span><br><span class="line">@TableField(fill &#x3D; FieldFill.INSERT) </span><br><span class="line">private Date createTime;</span><br><span class="line"></span><br><span class="line">@TableField(fill &#x3D; FieldFill.INSERT_UPDATE) </span><br><span class="line">private Date updateTime;</span><br></pre></td></tr></table></figure>
+
+<p>编写处理器来处理这个注解即可！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Slf4j </span><br><span class="line">@Component &#x2F;&#x2F; 一定不要忘记把处理器加到IOC容器中！</span><br><span class="line">public class MyMetaObjectHandler implements MetaObjectHandler &#123;</span><br><span class="line">    &#x2F;&#x2F; 插入时的填充策略</span><br><span class="line">     @Override</span><br><span class="line">      public void insertFill(MetaObject metaObject) &#123;</span><br><span class="line">           log.info(&quot;start insert fill.....&quot;);</span><br><span class="line">     this.setFieldValByName(&quot;createTime&quot;,new Date(),metaObject); </span><br><span class="line">     this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 更新时的填充策略</span><br><span class="line">     @Override</span><br><span class="line">     public void updateFill(MetaObject metaObject) &#123; </span><br><span class="line">            log.info(&quot;start update fill.....&quot;);</span><br><span class="line">             this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);</span><br><span class="line">      &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><ul>
+<li>乐观锁：它总是认为不会出问题，无论干什么都不去上锁，如果出现问题再次更新值测试</li>
+<li>悲观锁：它总认为会出现问题，不管什么操作都是先上锁再操作</li>
+</ul>
+<p>乐观锁实现方式：</p>
+<ul>
+<li>取出记录时，获取当前 version </li>
+<li>更新时，带上这个version </li>
+<li>执行更新时， set version = newVersion where version = oldVersion </li>
+<li>如果version不对，就更新失败</li>
+</ul>
+<h3 id="条件构造器"><a href="#条件构造器" class="headerlink" title="条件构造器"></a>条件构造器</h3><p>wapper  复杂的Sql就可以用它来代替</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">void test()&#123;</span><br><span class="line">&#x2F;&#x2F;查询名字是测试1的数据</span><br><span class="line">	 QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();</span><br><span class="line">	wapper.ea（“name”，“测试1”）;</span><br><span class="line">	User user &#x3D; userMapper.selectOne(wrapper)</span><br><span class="line">	 System.out.println(user); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/20/MyBatisPlus%E5%A4%8D%E4%B9%A0/" data-id="ckd4kpm3y00005su3dpuz78et" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MySQL的复习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/" class="article-date">
@@ -895,53 +1081,12 @@ public void getConnection() throws SQLException {
 
 
   
-    <article id="post-学习总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/16/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2020-04-16T15:10:10.000Z" itemprop="datePublished">2020-04-16</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于hexo框架的使用以及git使用、部署到远端的学习"><a href="#关于hexo框架的使用以及git使用、部署到远端的学习" class="headerlink" title="关于hexo框架的使用以及git使用、部署到远端的学习"></a>关于hexo框架的使用以及git使用、部署到远端的学习</h2><p>很早之前就了解了一些关于博客的框架，然后在B站里面看到了B站UP：codesheep发出关于hexo框架搭建博客的教程，使用比较简单，但是过程还需要安装git以及申请github账号，最后将项目部署到github托管。<br>由于up用的是苹果，有些操作与Windows10有点区别，加上我电脑没有安装git，所以在git上面花了一个晚上找了视频快速的学了。</p>
-<p>关于git的学习总结：<br>需要再找时间学习一下linux相关的知识以及命令操作语句。<br>第一次安装完git的时候需要先初始化一下账号和邮箱，使得后续在项目可以通过git的本地仓库传输到远端仓库管理代码。</p>
-<p>git向仓库添加文件流程：<br>    工作区-》暂存区-》git仓库</p>
-<p>常用的语句：<br>1、查询文件状态<br>    git status<br>2、将文件从工作区提交到暂存区<br>     git add 文件名.文件格式<br>3、将文件从暂存区提交到git仓库<br>    git commit -m “提交描述，关于文件的一些大概描述”<br>4、克隆仓库（地址在GitHub上获取，克隆第5的传输就是传输到该远端仓库）<br>    git clone url地址<br>5、将文件从本地仓库文件传递到远端仓库<br>    git push</p>
-<p>关于初始化的语句：<br>1、设置用户名<br>    git config –global user.name ‘用户名’<br>2、设置邮箱<br>    git config –global user.email ‘邮箱’<br>3、初始化git仓库<br>    git init</p>
-<p>关于文件操作的语句：<br>1、创建文件夹<br>    mkdir 文件夹名<br>2、创建文件<br>    touch 文件名.文件类型<br>3、修改文件内容并保存（修改完既回到工作区，所以需要重新提交）<br>    vim 文件名.文件类型<br>    :wq</p>
-<p>关于github搭建网站<br>访问的地址<br>    http://用户名.github.io<br>仓库名必须是 ：用户名.github.io<br>在仓库下创建index.html的文件即可</p>
-<p>关于hexo的框架：<br>1、初始化博客<br>    hexo init 文件夹名<br>2、新建文章<br>    hexo n ‘文件名称’<br>3、清理<br>    hexo clean<br>4、生成<br>    hexo g<br>5、启动服务<br>    hexo s<br>6、一键部署<br>    hexo d</p>
-<p>使用该框架时候需要先安装node，Windows需要使用git以及cmd<br>总结完毕，洗洗睡。</p>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/16/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" data-id="ckc1zclqt0000w8u3c935askb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -972,23 +1117,23 @@ public void getConnection() throws SQLException {
       <ul>
         
           <li>
+            <a href="/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/">“VUE的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/swagger%E7%9A%84%E5%AD%A6%E4%B9%A0/">swagger的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/20/MyBatisPlus%E5%A4%8D%E4%B9%A0/">MyBatisplus复习</a>
+          </li>
+        
+          <li>
             <a href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/">MySQL的复习</a>
           </li>
         
           <li>
             <a href="/2020/07/17/SpringBoot%E5%A4%8D%E4%B9%A0/">SpringBoot复习</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/03/SpringCloud%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%AD%A6%E4%B9%A0/">SpringCloud的第一天学习</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/01/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8E%E9%87%8D%E6%96%B0%E6%95%B4%E7%90%86%E7%9A%84hexo%E4%BB%A5%E5%8F%8Agit%E7%9A%84%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">重装系统后重新整理的hexo以及git的遇到的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/30/hello-world/">Hello World</a>
           </li>
         
       </ul>
