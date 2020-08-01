@@ -7,13 +7,15 @@
   
   <title>“VUE的学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Vue只负责视图层  Soc：   Html+CSS+JS:视图：只给用户看，刷新后台的数据 前端框架   网络通信：axios   页面跳转：bue-router   状态管理：vuex   Vue-UI：ICE    虚拟DOM：利用内存   计算机属性–》Vue特色 关于前后端分离  前端需要前端的框架，后端需要后端的框架。早期前后端没分离，前端程序员开发完Html丢后端套模板。实现了前后端">
+<meta property="og:type" content="article">
 <meta property="og:title" content="“VUE的学习">
 <meta property="og:url" content="http://yoursite.com/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Vue只负责视图层  Soc：   Html+CSS+JS:视图：只给用户看，刷新后台的数据 前端框架   网络通信：axios   页面跳转：bue-router   状态管理：vuex   Vue-UI：ICE    虚拟DOM：利用内存   计算机属性–》Vue特色 关于前后端分离  前端需要前端的框架，后端需要后端的框架。早期前后端没分离，前端程序员开发完Html丢后端套模板。实现了前后端">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-30T10:06:00.000Z">
-<meta property="article:modified_time" content="2020-07-30T10:06:00.879Z">
+<meta property="article:modified_time" content="2020-07-31T10:33:00.319Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -86,7 +88,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Vue只负责视图层"><a href="#Vue只负责视图层" class="headerlink" title="Vue只负责视图层"></a>Vue只负责视图层</h1><p>  Soc：<br>   Html+CSS+JS:视图：只给用户看，刷新后台的数据</p>
+<h2 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h2><p>   网络通信：axios<br>   页面跳转：bue-router<br>   状态管理：vuex<br>   Vue-UI：ICE</p>
+<p>   虚拟DOM：利用内存<br>   计算机属性–》Vue特色</p>
+<h2 id="关于前后端分离"><a href="#关于前后端分离" class="headerlink" title="关于前后端分离"></a>关于前后端分离</h2><p>  前端需要前端的框架，后端需要后端的框架。早期前后端没分离，前端程序员开发完Html丢后端套模板。实现了前后端分离，后端工程师只需要提供接口与前端对接即可，增加了开发效率。接口参考Swagger文章。前端可以脱离后端独立运行，就是前后端分离的具体表现。</p>
+<p>  集大成者：MVVM+Dom</p>
+<p>  大前端时代：后端：变轻松，但之后需要了解分布式，微服务，大数据。</p>
+<h2 id="前端为主的MV-模式"><a href="#前端为主的MV-模式" class="headerlink" title="前端为主的MV*模式"></a>前端为主的MV*模式</h2><ul>
+<li>MVC（同步通信为主）：model、View、Controller</li>
+<li>MVP（异步通信为主）：Model、View、Presenter</li>
+<li>MVVM (异步通信为主)：model、view、BiewModel</li>
+</ul>
+<h2 id="前后端分离的优点："><a href="#前后端分离的优点：" class="headerlink" title="前后端分离的优点："></a>前后端分离的优点：</h2><ul>
+<li>前后端职责很清晰：前端工作在浏览器端，后端工作在服务端。清晰分工，可以让开发并行，测试数据的模拟不难，前端可以本地开发。后端则可以专注于业务逻辑处理，输出RESful等接口</li>
+<li>前端开发的复杂度可控：前端代码很重，但合理分层，让前端代码能各司其职</li>
+<li>部署相对独立：可快速改进产品体验</li>
+</ul>
+<h2 id="前后端分离的缺点："><a href="#前后端分离的缺点：" class="headerlink" title="前后端分离的缺点："></a>前后端分离的缺点：</h2><ul>
+<li>代码不能复用，比如后端开发依旧需要对数据做各种校验，校验逻辑无法复用浏览器端代码。如果可以复用，那么后端的数据校验可以相对简单化。</li>
+<li>全异步，对SEO（搜索引擎优化）不利，往往需要服务端做同步渲染的降低方案。</li>
+<li>性能并非最佳，特别是移动互联网环境下。</li>
+<li>SPA不能满足左右需求，依旧存在大量多页面应用。URL Design需要后端配合，前端无法完全掌控。</li>
+</ul>
+<h2 id="NodeJS带来的全栈时代"><a href="#NodeJS带来的全栈时代" class="headerlink" title="NodeJS带来的全栈时代"></a>NodeJS带来的全栈时代</h2><p>  前端为主的MV*模式解决了很多问题，但是还是存在不足。随着NodeJS的兴起，JavaScript开始有能力运行在服务端，这意味着可以有一种新的研发模式</p>
+<p>  基于NodeJS的全栈模块还是有很多问题</p>
+<ul>
+<li>需要前端对服务编程有更进一步的认识。比如TCP/IP协议等网络知识。</li>
+<li>NNodeJS层与Java层的高效通信。NodeJS模式下，都在服务端，RESful HTTP通信未必高效</li>
+<li>对部署，运维层面的熟练了解，需要更多的只是和实操经验</li>
+<li>大量的历史遗留问题如何过渡，这是最大的问题。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  模式、技术没有好坏之分，只有适合不适合，前后端分离的开发思想主要是基于Soc，上面的种种模式，都是让前后端的职责更清晰，分工更合理高效。</p>
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><p>  一套用于构建用户界面的渐进式框架，发布于2014年2月。与启发大型框架不同的是，Vue被设计为可以自底向上逐层应用。核心库只关注视图层，易于上手且便于与第三方库（vue-roter，bue-resource，vuex）或既有项目整合。<br>  Vue是MVVM模式的实现者</p>
+<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><ul>
+<li><p>model： 模型层，表示JavaScript对象</p>
+</li>
+<li><p>View：视图层，这里表示Dom（Html操作的元素）、</p>
+</li>
+<li><p>ViewModel:连接属兔和数据的中间件，Vue.js就是MVVM中的该层实现者</p>
+<p>在MVVM架构中，是不允许数据和视图直接通信的，只能通过ViewModel来通信，而ViewModel就是定义了一个Observer观察者</p>
+</li>
+<li><p>ViewModel能够观察到数据的变化，并对视图对应的内容进行更新</p>
+</li>
+<li><p>ViewModel能够监听到视图的变化，并且通知数据发生改变<br>核心就是实现了DOM监听与数据绑定</p>
+</li>
+</ul>
+<h2 id="为什么要用Vue-js"><a href="#为什么要用Vue-js" class="headerlink" title="为什么要用Vue.js"></a>为什么要用Vue.js</h2><ul>
+<li>轻量级，体积小，压缩后只有20多KB</li>
+<li>移动优先。更适合移动端，比如移动端的Touch事件</li>
+<li>易上手，学习曲线平稳，文档整齐</li>
+<li>吸取了Angular（模块化）和React（虚拟DOM）的长处，拥有自己独特的功能</li>
+<li>开源</li>
+</ul>
+<h2 id="为什么要用MVVM"><a href="#为什么要用MVVM" class="headerlink" title="为什么要用MVVM"></a>为什么要用MVVM</h2><p>MVVM模式和MVC模式一样，主要目的是分离视图和模型，以下为好处</p>
+<ul>
+<li>低耦合：视图课独立于Model变化和修改，一个ViewModel可以绑定到不同的View上，当View变化的时候Model可以不变，当Model变化的时候，View也可以不变</li>
+<li>可复用：你可以把一些视图逻辑放在一个ViewModel里面，让很多的View重复这段视图逻辑</li>
+<li>独立开发：开发人员可以专注于业务逻辑和数据的开发，设计人员可以专注于页面设计</li>
+<li>可测试：界面素来是比较难测试的，而现在测试可以针对ViewModel来写</li>
+</ul>
+<h2 id="VUE常用7个属性"><a href="#VUE常用7个属性" class="headerlink" title="VUE常用7个属性"></a>VUE常用7个属性</h2><p><a href="https://www.cnblogs.com/bgwhite/p/9297221.html" target="_blank" rel="noopener">https://www.cnblogs.com/bgwhite/p/9297221.html</a></p>
+
       
     </div>
     <footer class="article-footer">
