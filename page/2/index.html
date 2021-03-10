@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-springboot的常用注解与作用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/18/springboot%E7%9A%84%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%B8%8E%E4%BD%9C%E7%94%A8/" class="article-date">
+  <time datetime="2020-04-17T18:30:31.000Z" itemprop="datePublished">2020-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/18/springboot%E7%9A%84%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%B8%8E%E4%BD%9C%E7%94%A8/">springboot的常用注解与作用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="springboot的常用注解与作用"><a href="#springboot的常用注解与作用" class="headerlink" title="springboot的常用注解与作用"></a>springboot的常用注解与作用</h2><p>@SpringBootApplication，替代@SpringBootConfiguration、@EnableAutoConfiguration、@ComponentScan<br>@ImportAutoConfiguration，导入配置类，一般做测试的时候用，正常优先使用@EnableAutoConfiguration<br>@SpringBootConfiguration，替代@Configuration<br>@ImportResource，将资源导入容器中<br>@PropertySource，导入properties文件<br>@PropertySources，@PropertySource的集合<br>@Role，bean角色定义ROLE_APPLICATION(默认值)、ROLE_SUPPORT(辅助角色)、ROLE_INFRASTRUCTURE(后台角色，用户无感)<br>@Scope，指定bean的作用域，默认singleton，其他包括prototype、request、session、globalSession<br>@Lazy，使bean懒加载，取消bean预初始化。用法：bean注册的地方加上@Lazy和用的地方加上@Lazy<br>@Primary，自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为首选者，否则将抛出 异常<br>@Profile，指定bean在哪个环境被激活<br>@DependsOn，依赖的bean注册完成，才注册当前类，依赖bean不存在会报错。用于控制bean加载的顺序<br>@PostConstruct，bean的属性都注入完之后，执行注解标注的方法进行初始化工作<br>@Autowired， 默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用<br>@Lookup，根据方法返回的类型，去容器中捞出对应的bean。适合单例作用域引用非单例的情况。<br>@Qualifier，申明bean名字，且可以按bean名字加载bean<br>@Required，检查bean的属性setXXX()方法，要求属性在配置阶段必须已配置<br>@Value，值注入，@Value(“${xxx}”)注入配置文件中的值；@Value(“#{xxx}”)支持spel，可注入bean、常量等<br>@SpringBootConfiguration，包装@Configuration<br>@Description，添加bean的文字描述<br>@EnableAspectJAutoProxy，启动AspectJ自动代理<br>@EnableLoadTimeWeaving，启用类加载器动态增强功能，使用Instrumentation实现<br>@AutoConfigurationPackage，包含该注解的package会被AutoConfigurationPackages注册<br>@AutoConfigureBefore，在指定配置类初始化前加载<br>@AutoConfigureAfter，在指定配置类初始化后加载<br>@AutoConfigureOrder，指定配置类初始化顺序，越小初始化越早</p>
+<p>组件注册<br>@ComponentScans，@ComponentScan集合<br>@ComponentScan，扫描启动类目录下的所有符合条件的Bean，并注入容器<br>@Component，泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注<br>@Controller，用于标注控制层组件<br>@Repository，用于标注数据访问组件，即DAO组件<br>@Service，用于标注业务层组件<br>@Configuration，表名类里的包含@Bean注解标注的方法<br>@Bean，用在@Configuration和@Component注解下的类里面的方法上。@Configuration类里面，@Bean注解的方法被类中其他方法调用时，会注入bean而不会执行方法本身；@Component类里面，@Bean注解的方法被类中其他方法调用时，会执行方法本身，不会注入bean；被注解的方法如果是静态(static)，bean的注册时间可能比所在类的注册时间早。<br>@EnableAutoConfiguration，开启自动注册配置文件，例如会去META-INF/spring.factories找需要自动转载的类<br>@Import，将class导入容器中</p>
+<p>选择器<br>@Conditional，当指定的条件都满足时，组件才被注册<br>@ConditionalOnBean，指定bean在上下文中时，才注册当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnClass，指定类在classpath上时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnCloudPlatform，在指定云平台才注册配置<br>@ConditionalOnExpression，指定spel为true时注册配置<br>@ConditionalOnJava，在指定java版本时注册配置<br>@ConditionalOnJndi<br>@ConditionalOnMissingBean，指定bean不在上下文中时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnMissingClass，指定类不在classpath上时，才初始化当前bean。用在方法上，则默认依赖类为方法的返回类型<br>@ConditionalOnNotWebApplication，不是在web环境才注册配置<br>@ConditionalOnProperty，配置文件中的值与指定值是否相等，相等才注册配置<br>@ConditionalOnResource，指定resources都在classpath上才注册配置<br>@ConditionalOnSingleCandidate，上下文中只有一个候选者bean时才注册配置<br>@ConditionalOnWebApplication，是在web环境才注册配置</p>
+<p>缓存<br>@EnableCaching，开启缓存配置，支持子类代理或者AspectJ增强<br>@CacheConfig，在一个类下，提供公共缓存配置<br>@Cacheable，放着方法和类上，缓存方法或类下所有方法的返回值<br>@CachePut，每次先执行方法，再将结果放入缓存<br>@CacheEvict，删除缓存<br>@Caching，可以配置@Cacheable、@CachePut、@CacheEvict</p>
+<p>定时器<br>@EnableScheduling，开启定时任务功能<br>@Scheduled，按指定执行周期执行方法<br>@Schedules，包含多个@Scheduled，可同时运行多个周期配置<br>@EnableAsync，开启方法异步执行的能力，通过@Async或者自定义注解找到需要异步执行的方法。通过实现AsyncConfigurer接口的getAsyncExecutor()和getAsyncUncaughtExceptionHandler()方法自定义Executor和异常处理。<br>@Async，标记方法为异步线程中执行</p>
+<p>注入配置文件properties<br>@EnableConfigurationProperties，启动@ConfigurationProperties功能<br>@ConfigurationProperties，将properties文件里的内容，自动注入bean对应的属性中<br>@DeprecatedConfigurationProperty，用在配置文件的getter()方法上，标记字段已经过期，并提示替换的字段。一般给spring-boot-configuration-processor使用。<br>@NestedConfigurationProperty，标记在配置文件的字段上，提示spring-boot-configuration-processor，配置包含嵌套的配置。<br>spring-configuration-metadata.json 提供配置的元信息，在写properties配置时，会有语法提示。在项目中引入spring-boot-configuration-processor项目，会扫描@ConfigurationProperties注解，自动生成spring-configuration-metadata.json</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/18/springboot%E7%9A%84%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%B8%8E%E4%BD%9C%E7%94%A8/" data-id="ckc1zclqy0002w8u3gtoz2c37" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-学习总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/16/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" class="article-date">
@@ -133,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
     </div>
   </div>
 
@@ -144,6 +186,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/03/09/%E5%85%B3%E4%BA%8ESimBot%E7%9A%84%E5%AD%A6%E4%B9%A0/">关于SimBot的学习</a>
+          </li>
         
           <li>
             <a href="/2020/07/30/%E2%80%9CVUE%E7%9A%84%E5%AD%A6%E4%B9%A0/">“VUE的学习</a>
@@ -161,10 +207,6 @@
             <a href="/2020/07/18/MySQL%E7%9A%84%E5%A4%8D%E4%B9%A0/">MySQL的复习</a>
           </li>
         
-          <li>
-            <a href="/2020/07/17/SpringBoot%E5%A4%8D%E4%B9%A0/">SpringBoot复习</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -177,7 +219,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2021 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
