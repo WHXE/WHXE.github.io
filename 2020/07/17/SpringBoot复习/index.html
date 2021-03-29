@@ -15,7 +15,7 @@
 <meta property="og:description" content="SpringBoot框架作用  它是一个已经完成绝大部分配置的SpringMVC框架，并且可以更简单的整合其他框架一起使用，甚至默认情况下已经集成了绝大部分通用的依赖。核心思想为“约定大于配置”，开发人员遵守相关的”约定“即可 关于项目的创建   通过 https:&#x2F;&#x2F;start.spring.io 官网下载即可   Group值为cn.tedu，Artifact值为sample，展开Option">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-17T10:57:24.000Z">
-<meta property="article:modified_time" content="2020-07-17T11:15:03.167Z">
+<meta property="article:modified_time" content="2021-03-29T10:23:15.598Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -92,13 +92,19 @@
 <h2 id="关于项目的创建"><a href="#关于项目的创建" class="headerlink" title="关于项目的创建"></a>关于项目的创建</h2><p>   通过 <a href="https://start.spring.io" target="_blank" rel="noopener">https://start.spring.io</a> 官网下载即可<br>   Group值为cn.tedu，Artifact值为sample，展开Options，将Packaging选择为war，确定无误后，点击下方的Generate按钮，将生成项目，并且开始自动下载。<br>   将下载得到的sample.zip解压，得到sample文件夹，该文件夹就是一个SpringBoot项目，先将该文件夹移动到Workspace中，便于管理项目。</p>
 <h2 id="项目中添加静态资源"><a href="#项目中添加静态资源" class="headerlink" title="项目中添加静态资源"></a>项目中添加静态资源</h2><p>  静态资源：客户端可以直接访问的资源，例如.html、.css、.js、图片等。</p>
 <p>  在SpringBoot项目中，在src/main/resources下有static文件夹，这个文件夹就是专门用于存放静态资源文件的，其作用相当于传统JavaEE项目中的webapp文件夹，但是，在SpringBoot项目中建议放在static中，在使用该文件夹时，还可以自行创建子级文件夹。</p>
-<h2 id="关于MyBatis框架"><a href="#关于MyBatis框架" class="headerlink" title="关于MyBatis框架"></a>关于MyBatis框架</h2><p>  需要在项目中添加MyBatis的相关依赖，可以再下载时就添加，或者直接复制依赖。<br>  添加依赖后，启动项目时，就会自动读取连接数据库的配置信息，而当前并没有配置，所以，就会出现错误！则需要在application.properties文件中添加配置<br>    spring.datasource.url=jdbc:mysql://localhost:3306/tedu_ums?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai<br>    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<br>    spring.datasource.username=root<br>    spring.datasource.password=root</p>
+<h2 id="关于MyBatis框架"><a href="#关于MyBatis框架" class="headerlink" title="关于MyBatis框架"></a>关于MyBatis框架</h2><p>  需要在项目中添加MyBatis的相关依赖，可以再下载时就添加，或者直接复制依赖。<br>  添加依赖后，启动项目时，就会自动读取连接数据库的配置信息，而当前并没有配置，所以，就会出现错误！则需要在application.properties文件中添加配置</p>
+<pre><code class="XML">spring.datasource.url=jdbc:mysql://localhost:3306/tedu_ums?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=root</code></pre>
 <p>  当添加了以上配置后，其实，启动项目时，也只是读取以上配置，并不会执行连接数据库的操作，所以，即使配置信息有误，也不会提示错误，则需要通过单元测试，尝试连接数据库，才能知道配置信息及相关涉及的jar包文件是否正确！</p>
-<p>在SampleApplicationTests中添加连接数据库的测试方法：<br>    @Autowired<br>    private DataSource dataSource;</p>
-<pre><code>@Test
-public void getConnection() throws SQLException {
-  System.err.println(dataSource.getConnection());
-}</code></pre>
+<ul>
+<li><p>在SampleApplicationTests中添加连接数据库的测试方法：<br>``` JAVA<br>  @Autowired<br>  private DataSource dataSource;</p>
+<p>  @Test<br>  public void getConnection() throws SQLException {</p>
+<pre><code>System.err.println(dataSource.getConnection());</code></pre><p>  }</p>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
